@@ -267,7 +267,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-xs-12">
                     <div class="contact-form">
-                        <form id="contact" action="" method="post">
+                        <form id="contact" action="submit_form.php" method="post">
                           <div class="row">
                             <div class="col-md-6 col-sm-12">
                               <fieldset>
@@ -326,6 +326,8 @@
     <script src="assets/js/custom.js"></script>
     
     <script src="assets/js/accordion.js"></script>
+
+    <script src="assets/js/sent.js"></script>
 
   </body>
 </html>
