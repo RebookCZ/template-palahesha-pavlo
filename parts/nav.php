@@ -5,7 +5,7 @@
                         <!-- ***** Menu Start ***** -->
     <ul class="nav">
         <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-        <li class="scroll-to-section"><a href="#features">About</a></li>
+        <li class="scroll-to-section"><a href="#features">Q&A</a></li>
         <li class="scroll-to-section"><a href="#our-classes">Classes</a></li>
         <li class="scroll-to-section"><a href="#schedule">Schedules</a></li>
         <li class="scroll-to-section"><a href="#contact-us">Contact</a></li> 
