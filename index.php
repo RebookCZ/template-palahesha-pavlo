@@ -22,6 +22,8 @@
 
     <link rel="stylesheet" href="assets/css/accordion.css">
 
+    <link rel="stylesheet" href="assets/css/modal.css">
+
     </head>
     
     <body>
@@ -306,6 +308,49 @@
     <!-- ***** Footer Start ***** -->
     <?php include_once 'parts/footer.php'?>
 
+
+    <!-- ***** Registration window ***** -->
+
+    <!-- Modal Sign Up -->
+<!-- Modal Sign Up -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content" >
+            <span class="close">&times;</span>
+            <h2>Sign Up</h2>
+            <form>
+            <input type="text" placeholder="Your name" >
+            <input type="text" placeholder="Your username" >
+            <input type="email" placeholder="Email" >
+            <input type="password" placeholder="Password" >
+            <button type="submit">Register</button>
+            </form>
+
+            <p class="button-login-in-already">
+                Already have an account?
+                <a href="#" onclick="switchModal('signupModal', 'loginModal')">Log In</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Modal Log In -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Log In</h2>
+            <form>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button type="submit">Login</button>
+            </form>
+            <p class="button-login-in-already">
+                Don’t have an account?
+                <a href="#" onclick="switchModal('loginModal', 'signupModal')">Sign Up</a>
+            </p>
+        </div>
+    </div>
+
+
+
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
 
@@ -324,10 +369,9 @@
     
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
-    
     <script src="assets/js/accordion.js"></script>
-
     <script src="assets/js/sent.js"></script>
+    <script src="assets/js/modal.js"></script>
 
   </body>
 </html>
