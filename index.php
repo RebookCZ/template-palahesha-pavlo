@@ -1,3 +1,10 @@
+
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +16,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
-    <title>Training Studio - Free CSS Template</title>
+    <title>Training Studio</title>
 <!--
 
 -->
@@ -74,8 +81,6 @@
                         <img src="assets/images/line-dec.png" alt="waves">
                         <p>Elit culpa id mollit irure sit. Ex ut et ea esse culpa officia ea incididunt elit velit veniam qui. Mollit deserunt culpa incididunt laborum commodo in culpa.</p>
                     </div>
-                </div>
-                </section>
                     <section class="container">
                         <?php
                         include_once "otazky.php";
@@ -83,8 +88,13 @@
                         $qna = new QnA();
                         $qna->readQnA();
                         ?>
+
+                        
                     </section>
-                </section>
+
+                    
+                </div>
+                
             </div>
         </div>
     </section>
@@ -314,15 +324,15 @@
     <!-- Modal Sign Up -->
 <!-- Modal Sign Up -->
     <div id="signupModal" class="modal">
-        <div class="modal-content" >
-            <span class="close">&times;</span>
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signupModal')">&times;</span>
             <h2>Sign Up</h2>
-            <form>
-            <input type="text" placeholder="Your name" >
-            <input type="text" placeholder="Your username" >
-            <input type="email" placeholder="Email" >
-            <input type="password" placeholder="Password" >
-            <button type="submit">Register</button>
+            <form id="signupForm">
+                <input type="text" name="name" placeholder="Your name" required>
+                <input type="text" name="username" placeholder="Your username" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Register</button>
             </form>
 
             <p class="button-login-in-already">
@@ -337,17 +347,49 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal('loginModal')">&times;</span>
             <h2>Log In</h2>
-            <form>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
+            <form id="loginForm">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
                 <button type="submit">Login</button>
             </form>
+
             <p class="button-login-in-already">
                 Don’t have an account?
                 <a href="#" onclick="switchModal('loginModal', 'signupModal')">Sign Up</a>
             </p>
         </div>
     </div>
+
+    <!-- Modal Edit/delete -->
+     <!-- Модальное окно редактирования -->
+    <!-- Edit Question Modal -->
+    <div id="editModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close" onclick="closeEditModal()">&times;</span>
+        <h2>Edit Question</h2>
+        <form id="editForm">
+        
+        <input type="hidden" name="id" id="edit-id" required>
+
+        <div class="form-group" style="margin-bottom: 10px;">
+            <label for="edit-question" style="display: block; margin-bottom: 5px;">Question:</label>
+            <textarea name="question" id="edit-question" rows="3" style="width: 100%;" required></textarea>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 10px;">
+            <label for="edit-answer" style="display: block; margin-bottom: 5px;">Answer:</label>
+            <textarea name="answer" id="edit-answer" rows="3" style="width: 100%;" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-danger" style="margin-top: 10px; width: 100%;">Save</button>
+
+        </form>
+    </div>
+    </div>
+
+
+
+
 
 
 
@@ -372,6 +414,9 @@
     <script src="assets/js/accordion.js"></script>
     <script src="assets/js/sent.js"></script>
     <script src="assets/js/modal.js"></script>
+    <script src="assets/js/ajax-users.js"></script>
+    <script src="assets/js/editQuestion.js"></script>
+    <script src="assets/js/deleteQuestion.js"></script>
 
   </body>
 </html>

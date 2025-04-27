@@ -65,6 +65,7 @@
   
   .modal-content button:hover {
     background: #d22f2f;
+    color: white;
   }
 
   .button-login-in-already{
