@@ -34,6 +34,8 @@ $questions = $stmt->fetchAll();
         <form action="../users_db/logout.php" method="POST" style="display:inline;">
             <button type="submit" class="btn btn-danger">Log out</button>
         </form>
+
+        <a href="../todo_system/todo.php" class="btn btn-primary ms-2">📝 My tasks</a>
     </div>
 
     <?php if ($_SESSION['role'] == 'admin'): ?>

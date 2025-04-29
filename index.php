@@ -66,6 +66,13 @@ session_start();
                 <div class="main-button scroll-to-section">
                     <a href="#features">Become a member</a>
                 </div>
+
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <div class="mt-3">
+                        <a href="todo_system/todo.php" class="btn btn-primary">📝 My tasks</a>
+                    </div>
+                <?php endif; ?>
+
             </div>
         </div>
     </div>
