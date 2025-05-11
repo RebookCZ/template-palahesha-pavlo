@@ -20,3 +20,4 @@ $stmt->execute([$user_id, $task]);
 
 header("Location: todo.php");
 exit();
+?>
