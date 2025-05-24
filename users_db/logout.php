@@ -1,6 +1,6 @@
 <?php
 session_start();
 session_destroy();
-header("Location: /template%20palahesha%20pavlo/index.php");
+header("Location: http://localhost/template-palahesha-pavlo/index.php");
 exit();
 ?>

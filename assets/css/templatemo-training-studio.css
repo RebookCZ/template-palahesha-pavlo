@@ -181,7 +181,7 @@ body {
 .main-button a {
   display: inline-block;
   font-size: 15px;
-  padding: 12px 20px;
+  padding: 0px 20px;
   background-color: #ed563b;
   color: #fff;
   text-align: center;
@@ -192,6 +192,7 @@ body {
 
 .main-button a:hover {
   background-color: #f9735b;
+  cursor: pointer;
 }
 
 
@@ -1002,6 +1003,7 @@ contact
 
 #contact-us {
   margin-top: 140px;
+  margin-bottom: 0px;
 }
 
 #contact-us .container-fluid .col-lg-6 {
@@ -1085,7 +1087,7 @@ footer
 */
 footer {
   text-align: center;
-  padding: 30px 0px;
+  padding-top: 10px; 
 }
 
 footer p {

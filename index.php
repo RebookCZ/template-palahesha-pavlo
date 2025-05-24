@@ -61,11 +61,8 @@ session_start();
 
         <div class="video-overlay header-text">
             <div class="caption">
-                <h6>work harderrrr, get stronger</h6>
+                <h6>work harder, get stronger</h6>
                 <h2>easy with our <em>gym</em></h2>
-                <div class="main-button scroll-to-section">
-                    <a href="#features">Become a member</a>
-                </div>
 
                 <?php if (isset($_SESSION['user_id'])): ?>
                     <div class="mt-3">
@@ -89,6 +86,10 @@ session_start();
                         <p>Elit culpa id mollit irure sit. Ex ut et ea esse culpa officia ea incididunt elit velit veniam qui. Mollit deserunt culpa incididunt laborum commodo in culpa.</p>
                     </div>
                     <section class="container">
+                        <?php if (isset($_SESSION['user_id']) && isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                            <button class="btn btn-success mb-3" onclick="openAddModal()">Add Question</button>
+                        <?php endif; ?>
+
                         <?php
                         include_once "otazky.php";
                         use otazkyodpovede\QnA;
@@ -367,8 +368,6 @@ session_start();
         </div>
     </div>
 
-    <!-- Modal Edit/delete -->
-     <!-- Модальное окно редактирования -->
     <!-- Edit Question Modal -->
     <div id="editModal" class="modal" style="display: none;">
     <div class="modal-content">
@@ -393,6 +392,28 @@ session_start();
         </form>
     </div>
     </div>
+
+
+    <div id="addModal" style="display: none;" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content p-4">
+                <h4>Add New Question</h4>   
+                <form id="addForm">
+                    <div class="form-group mb-2">
+                        <label for="add-question">Question:</label>
+                        <input type="text" name="question" id="add-question" class="form-control" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="add-answer">Answer:</label>
+                        <textarea name="answer" id="add-answer" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeAddModal()">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
 
 
@@ -424,6 +445,7 @@ session_start();
     <script src="assets/js/ajax-users.js"></script>
     <script src="assets/js/editQuestion.js"></script>
     <script src="assets/js/deleteQuestion.js"></script>
+    <script src="assets/js/addQuestion.js" defer></script>
 
-  </body>
+</body>
 </html>

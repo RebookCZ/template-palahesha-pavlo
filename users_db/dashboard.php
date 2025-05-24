@@ -62,8 +62,10 @@ $questions = $stmt->fetchAll();
                         </td>
                     </tr>
                 <?php endforeach; ?>
+
             </tbody>
         </table>
+
     <?php else: ?>
         <p>You are not allowed to do it!</p>
     <?php endif; ?>
