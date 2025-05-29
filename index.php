@@ -329,20 +329,31 @@ session_start();
 
     <!-- ***** Registration window ***** -->
 
-    <!-- Modal Sign Up -->
-<!-- Modal Sign Up -->
+    <?php if (isset($_SESSION['error'])): ?>
+        <div class="message error"><?= htmlspecialchars($_SESSION['error']); ?></div>
+        <?php unset($_SESSION['error']); ?>
+    <?php endif; ?>
+
+    <?php if (isset($_SESSION['success'])): ?>
+        <div class="message success"><?= htmlspecialchars($_SESSION['success']); ?></div>
+        <?php unset($_SESSION['success']); ?>
+    <?php endif; ?>
+
+    <!-- Твой основной контент страницы -->
+
+    <!-- Sign Up Modal -->
     <div id="signupModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('signupModal')">&times;</span>
             <h2>Sign Up</h2>
-            <form id="signupForm">
+            <form id="signupForm" method="POST" action="users_db/auth.php">
+                <input type="hidden" name="action" value="register" />
                 <input type="text" name="name" placeholder="Your name" required>
                 <input type="text" name="username" placeholder="Your username" required>
                 <input type="email" name="email" placeholder="Email" required>
                 <input type="password" name="password" placeholder="Password" required>
                 <button type="submit">Register</button>
             </form>
-
             <p class="button-login-in-already">
                 Already have an account?
                 <a href="#" onclick="switchModal('signupModal', 'loginModal')">Log In</a>
@@ -350,17 +361,17 @@ session_start();
         </div>
     </div>
 
-    <!-- Modal Log In -->
+    <!-- Login Modal -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('loginModal')">&times;</span>
             <h2>Log In</h2>
-            <form id="loginForm">
+            <form id="loginForm" method="POST" action="users_db/auth.php">
+                <input type="hidden" name="action" value="login" />
                 <input type="email" name="email" placeholder="Email" required>
                 <input type="password" name="password" placeholder="Password" required>
                 <button type="submit">Login</button>
             </form>
-
             <p class="button-login-in-already">
                 Don’t have an account?
                 <a href="#" onclick="switchModal('loginModal', 'signupModal')">Sign Up</a>
@@ -368,8 +379,10 @@ session_start();
         </div>
     </div>
 
+
+
     <!-- Edit Question Modal -->
-    <div id="editModal" class="modal" style="display: none;">
+    <!-- <div id="editModal" class="modal" style="display: none;">
     <div class="modal-content">
         <span class="close" onclick="closeEditModal()">&times;</span>
         <h2>Edit Question</h2>
@@ -412,7 +425,7 @@ session_start();
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
 
@@ -442,10 +455,7 @@ session_start();
     <script src="assets/js/accordion.js"></script>
     <script src="assets/js/sent.js"></script>
     <script src="assets/js/modal.js"></script>
-    <script src="assets/js/ajax-users.js"></script>
-    <script src="assets/js/editQuestion.js"></script>
-    <script src="assets/js/deleteQuestion.js"></script>
-    <script src="assets/js/addQuestion.js" defer></script>
+    <script src="assets/js/question-api.js"></script>
 
 </body>
 </html>

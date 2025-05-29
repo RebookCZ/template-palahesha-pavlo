@@ -14,12 +14,12 @@ class Database {
         $this->connect();
     }
 
-    protected function connect() {
+    protected function connect() ф{
         $config = DATABASE;
 
         $options = [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, // Nastavujú sa možnosti PDO:
         ];
 
         try {

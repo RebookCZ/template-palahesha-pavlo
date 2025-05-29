@@ -1,23 +1,33 @@
-function openModal(id) {
-    document.getElementById(id).style.display = 'block';
+
+function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.style.display = 'block';
+  }
 }
-  
-function closeModal(id) {
-    document.getElementById(id).style.display = 'none';
+
+
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.style.display = 'none';
+  }
 }
-  
-function switchModal(currentId, targetId) {
-    closeModal(currentId);
-    openModal(targetId);
+
+
+function switchModal(oneId, anotherId) {
+  closeModal(oneId);
+  openModal(anotherId);
 }
-  
+
 
 window.onclick = function(event) {
-    const modals = document.querySelectorAll('.modal');
-    modals.forEach(modal => {
-      if (event.target === modal) {
-        modal.style.display = 'none';
-      }
-    });
+  const signupModal = document.getElementById('signupModal');
+  const loginModal = document.getElementById('loginModal');
+
+  if (event.target === signupModal) {
+    closeModal('signupModal');
+  } else if (event.target === loginModal) {
+    closeModal('loginModal');
+  }
 };
-  
