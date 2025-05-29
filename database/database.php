@@ -14,7 +14,7 @@ class Database {
         $this->connect();
     }
 
-    protected function connect() ф{
+    protected function connect() {
         $config = DATABASE;
 
         $options = [

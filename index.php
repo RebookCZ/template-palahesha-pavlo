@@ -330,17 +330,18 @@ session_start();
     <!-- ***** Registration window ***** -->
 
     <?php if (isset($_SESSION['error'])): ?>
-        <div class="message error"><?= htmlspecialchars($_SESSION['error']); ?></div>
-        <?php unset($_SESSION['error']); ?>
-    <?php endif; ?>
+    <div class="message error"><?= htmlspecialchars($_SESSION['error']); ?></div>
+    <?php unset($_SESSION['error']); ?>
+<?php endif; ?>
 
-    <?php if (isset($_SESSION['success'])): ?>
-        <div class="message success"><?= htmlspecialchars($_SESSION['success']); ?></div>
-        <?php unset($_SESSION['success']); ?>
-    <?php endif; ?>
+<?php if (isset($_SESSION['success'])): ?>
+    <div class="message success"><?= htmlspecialchars($_SESSION['success']); ?></div>
+    <?php unset($_SESSION['success']); ?>
+<?php endif; ?>
 
 
-    <!-- Sign Up Modal -->
+
+<!-- Sign Up Modal -->
     <div id="signupModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('signupModal')">&times;</span>
@@ -360,7 +361,7 @@ session_start();
         </div>
     </div>
 
-    <!-- Login Modal -->
+<!-- Login Modal -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('loginModal')">&times;</span>
@@ -378,10 +379,8 @@ session_start();
         </div>
     </div>
 
-
-
     <!-- Edit Question Modal -->
-    <!-- <div id="editModal" class="modal" style="display: none;">
+    <div id="editModal" class="modal" style="display: none;">
     <div class="modal-content">
         <span class="close" onclick="closeEditModal()">&times;</span>
         <h2>Edit Question</h2>
@@ -424,7 +423,7 @@ session_start();
                 </form>
             </div>
         </div>
-    </div> -->
+    </div>
 
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
@@ -447,7 +446,7 @@ session_start();
     <script src="assets/js/accordion.js"></script>
     <script src="assets/js/sent.js"></script>
     <script src="assets/js/modal.js"></script>
-    <script src="assets/js/question-api.js"></script>
+    <!-- <script src="assets/js/question-api.js"></script> -->
 
 </body>
 </html>

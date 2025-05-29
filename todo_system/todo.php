@@ -35,6 +35,7 @@ class TodoSystem {
         }
 
         $this->renderPage();
+        exit();
     }
 
     private function addTodo() {
