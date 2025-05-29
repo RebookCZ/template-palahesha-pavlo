@@ -339,7 +339,6 @@ session_start();
         <?php unset($_SESSION['success']); ?>
     <?php endif; ?>
 
-    <!-- Твой основной контент страницы -->
 
     <!-- Sign Up Modal -->
     <div id="signupModal" class="modal">
@@ -426,13 +425,6 @@ session_start();
             </div>
         </div>
     </div> -->
-
-
-
-
-
-
-
 
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
