@@ -287,7 +287,7 @@ session_start();
                 </div>
                 <div class="col-lg-6 col-md-6 col-xs-12">
                     <div class="contact-form">
-                        <form id="contact" action="submit_form.php" method="post">
+                        <form id="contactForm" method="post">
                           <div class="row">
                             <div class="col-md-6 col-sm-12">
                               <fieldset>
@@ -446,6 +446,7 @@ session_start();
     <script src="assets/js/modal.js"></script>
     <script src="assets/js/admin_qa.js"></script>
     <script src="assets/js/ajax.js" defer></script>
+    <script src="assets/js/form_ajax.js"></script>
 
 </body>
 </html>

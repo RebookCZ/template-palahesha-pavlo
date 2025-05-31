@@ -1,32 +1,53 @@
 <?php
-require_once 'db/config.php';
 
-$host = DATABASE['HOST'];
-$dbname = DATABASE['DBNAME'];
-$user = DATABASE['USER_NAME'];
-$password = DATABASE['PASSWORD'];
+require_once __DIR__ . '/database/Database.php';
 
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("database connection error: " . $e->getMessage());
+use database\Database;
+
+class ContactFormHandler extends Database
+{
+    private $conn;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->conn = $this->getConnection();
+    }
+
+    public function process(array $data): string
+    {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            throw new Exception('Invalid request method');
+        }
+
+        $name    = trim($data['name'] ?? '');
+        $email   = trim($data['email'] ?? '');
+        $subject = trim($data['subject'] ?? '');
+        $message = trim($data['message'] ?? '');
+
+        if ($name === '' || $email === '' || $subject === '' || $message === '') {
+            throw new Exception('All fields are required');
+        }
+
+        $stmt = $this->conn->prepare("INSERT INTO kontakt (name, email, subject, message) 
+                                      VALUES (:name, :email, :subject, :message)");
+        $stmt->execute([
+            ':name'    => $name,
+            ':email'   => $email,
+            ':subject' => $subject,
+            ':message' => $message
+        ]);
+
+        return "Message sent successfully!";
+    }
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') { // If the form was submitted, it would be a POST request. After this we get input from name,email,subject,message
-    $name    = $_POST['name'] ?? ''; // if the input be empty the form will sent empty input by ?? '' method
-    $email   = $_POST['email'] ?? '';
-    $subject = $_POST['subject'] ?? '';
-    $message = $_POST['message'] ?? '';
+header('Content-Type: text/plain; charset=utf-8');
 
-    $stmt = $pdo->prepare("INSERT INTO kontakt (name, email, subject, message) VALUES (:name, :email, :subject, :message)");
-    $stmt->execute([
-        ':name'    => $name,
-        ':email'   => $email,
-        ':subject' => $subject,
-        ':message' => $message
-    ]);
-
-    echo "OK";
-    exit;
+try {
+    $handler = new ContactFormHandler();
+    echo $handler->process($_POST);
+} catch (Exception $e) {
+    http_response_code(400);
+    echo "Error: " . $e->getMessage();
 }
