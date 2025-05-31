@@ -380,50 +380,49 @@ session_start();
     </div>
 
     <!-- Edit Question Modal -->
-    <div id="editModal" class="modal" style="display: none;">
-    <div class="modal-content">
-        <span class="close" onclick="closeEditModal()">&times;</span>
-        <h2>Edit Question</h2>
-        <form id="editForm">
-        
-        <input type="hidden" name="id" id="edit-id" required>
+    <div id="editModal" class="modal" style="display: none;"> 
+        <div class="modal-content">
+            <span class="close" onclick="closeEditModal()">&times;</span>
+            <h2>Edit Question</h2>
+            <form id="editForm">
 
-        <div class="form-group" style="margin-bottom: 10px;">
-            <label for="edit-question" style="display: block; margin-bottom: 5px;">Question:</label>
-            <textarea name="question" id="edit-question" rows="3" style="width: 100%;" required></textarea>
+            <input type="hidden" name="id" id="edit-id" required>
+
+            <div class="form-group" style="margin-bottom: 10px;">
+                <label for="edit-question" style="display: block; margin-bottom: 5px;">Question:</label>
+                <textarea name="question" id="edit-question" rows="3" style="width: 100%;" required></textarea>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 10px;">
+                <label for="edit-answer" style="display: block; margin-bottom: 5px;">Answer:</label>
+                <textarea name="answer" id="edit-answer" rows="3" style="width: 100%;" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-danger" style="margin-top: 10px; width: 100%;">Save</button>
+            </form>
         </div>
-
-        <div class="form-group" style="margin-bottom: 10px;">
-            <label for="edit-answer" style="display: block; margin-bottom: 5px;">Answer:</label>
-            <textarea name="answer" id="edit-answer" rows="3" style="width: 100%;" required></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-danger" style="margin-top: 10px; width: 100%;">Save</button>
-
-        </form>
-    </div>
     </div>
 
-
-    <div id="addModal" style="display: none;" class="modal">
+    <div id="addModal" class="modal" style="display: none;">
         <div class="modal-dialog">
             <div class="modal-content p-4">
-                <h4>Add New Question</h4>   
-                <form id="addForm">
-                    <div class="form-group mb-2">
-                        <label for="add-question">Question:</label>
-                        <input type="text" name="question" id="add-question" class="form-control" required>
-                    </div>
-                    <div class="form-group mb-2">
-                        <label for="add-answer">Answer:</label>
-                        <textarea name="answer" id="add-answer" class="form-control" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Add</button>
-                    <button type="button" class="btn btn-secondary" onclick="closeAddModal()">Cancel</button>
-                </form>
+            <h4>Add New Question</h4>
+            <form id="addForm">
+                <div class="form-group mb-2">
+                <label for="add-question">Question:</label>
+                <textarea name="question" id="add-question" class="form-control" rows="2" required></textarea>
+                </div>
+                <div class="form-group mb-2">
+                <label for="add-answer">Answer:</label>
+                <textarea name="answer" id="add-answer" class="form-control" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Add</button>
+                <button type="button" class="btn btn-secondary" onclick="closeAddModal()">Cancel</button>
+            </form>
             </div>
         </div>
     </div>
+
 
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
@@ -439,14 +438,14 @@ session_start();
     <script src="assets/js/imgfix.min.js"></script> 
     <script src="assets/js/mixitup.js"></script> 
     <script src="assets/js/accordions.js"></script>
-    <script scc="assets/js/accordion.js"></script>
     
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
     <script src="assets/js/accordion.js"></script>
     <script src="assets/js/sent.js"></script>
     <script src="assets/js/modal.js"></script>
-    <!-- <script src="assets/js/question-api.js"></script> -->
+    <script src="assets/js/admin_qa.js"></script>
+    <script src="assets/js/ajax.js" defer></script>
 
 </body>
 </html>
