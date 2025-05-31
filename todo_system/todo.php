@@ -1,9 +1,10 @@
 <?php
 session_start();
 require_once(__DIR__ . '/../database/database.php');
+
 use database\Database;
 
-class TodoSystem {
+class TodoSystem extends Database {
     private $conn;
     private $user_id;
 
@@ -13,8 +14,8 @@ class TodoSystem {
             exit();
         }
 
-        $db = new Database();
-        $this->conn = $db->getConnection();
+        parent::__construct();
+        $this->conn = $this->getConnection();
         $this->user_id = $_SESSION['user_id'];
     }
 
@@ -96,7 +97,6 @@ class TodoSystem {
                 die("Task not found or access denied.");
             }
         }
-
         ?>
         <!DOCTYPE html>
         <html lang="en">

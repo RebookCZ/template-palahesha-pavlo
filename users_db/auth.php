@@ -3,12 +3,14 @@ session_start();
 require_once(__DIR__ . '/../database/database.php');
 
 use database\Database;
+use PDO;
 
-class UserAuth {
+class UserAuth extends Database {
     private PDO $conn;
 
-    public function __construct(PDO $conn) {
-        $this->conn = $conn;
+    public function __construct() {
+        parent::__construct();
+        $this->conn = $this->getConnection(); 
     }
 
     public function register(string $name, string $username, string $email, string $password): array {
@@ -54,9 +56,7 @@ class UserAuth {
     }
 }
 
-$db = new Database();
-$conn = $db->getConnection();
-$auth = new UserAuth($conn);
+$auth = new UserAuth();
 
 $action = $_POST['action'] ?? '';
 
