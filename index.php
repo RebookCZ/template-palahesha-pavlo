@@ -117,7 +117,7 @@ session_start();
                         <h2>Don’t <em>think</em>, begin <em>today</em>!</h2>
                         <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula, sit amet dapibus odio augue eget libero. Morbi tempus mauris a nisi luctus imperdiet.</p>
                         <div class="main-button scroll-to-section">
-                            <a href="#our-classes">Become a member</a>
+                            <a href="#" onclick="openModal('signupModal')">Become a member</a>
                         </div>
                     </div>
                 </div>
